@@ -2,6 +2,8 @@
 #include "qnetworkaccessmanager.h"
 #include <QApplication>
 
+//edit1 branch
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

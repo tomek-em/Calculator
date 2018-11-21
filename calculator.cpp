@@ -12,23 +12,28 @@ Calculator::Calculator(QWidget *parent) :
 
     //zerowanie zmiennych
     tempNum = 0;
-    sol = 0;         // wynik
-    curSol = 0;      // wynik po przemnożeniu kurs * wynik
-    fNum = 0;
-    sNum = 0;
+    result= 0;         // wynik
+    curRes = 0;      // wynik po przemnożeniu kurs * wynik
+    fNum = 0;       // pierwsza liczba ?
+    sNum = 0;       // druga liczba ?
 
     curRate = 0;
     m = 0;
     curM = 0;
 
-    calcVal = 0;
+    calcVal = 0;       //aktualna liczba z wyswietlacza
     divTrigger = false;
     multiTrigger = false;
     plusTrigger = false;
     minusTrigger = false;
+
+    bool mbut = false;          // true zeruje wyświetlacz gdy wpisujemy kolejna licz.
+    bool first = true;          // sprawdza czy to pierwsze działanie
+    bool dbMath = false;        // true - znak math dostal wcisniety 2 razy
+    bool mrate = false;         // true - kurs wpisany ręcznie
+
     ui -> SDisplay -> setMaximumHeight(30);
     ui -> Display -> setAlignment(Qt::AlignRight);
-
     ui -> Display -> setText(QString::number(calcVal));
     ui -> SDisplay -> setFontPointSize(10);
 
@@ -36,7 +41,8 @@ Calculator::Calculator(QWidget *parent) :
     for (int i = 0; i < 10; i++)
     {
         QString butName = "Button" + QString::number(i);
-        numButtons[i] = Calculator::findChild<QPushButton *>(butName); //nmButtons przypisuje obj o nazwie (butName)
+        numButtons[i] = Calculator::findChild<QPushButton *>(butName); //numButtons przypisuje obj o nazwie (butName)
+                                                                        //zamiast np. ui-> Button6 dla kazdego numeru
         connect(numButtons[i], SIGNAL(released()), this, SLOT(NumPressed()));
     }
     // powyżsa pętla jest sprawdzana i-razy. Za każdą iteracją numButtons zawiera nazwę innego przycisku numueru,
@@ -108,38 +114,38 @@ void Calculator::MathPressed()
         }
         else
         {
-            sol = ui -> Display -> text().toDouble();
+            result= ui -> Display -> text().toDouble();
         }
         first = false;
         mbut = true;
         an = false;
         if (first == false) dbMath = true;
 
-        }
+    }
 
-        QPushButton *button = (QPushButton *)sender();
-        QString butVal = button->text();
-        divTrigger = false;
-        multiTrigger = false;
-        minusTrigger = false;
-        plusTrigger = false;
+    QPushButton *button = (QPushButton *)sender();
+    QString butVal = button->text();
+    divTrigger = false;
+    multiTrigger = false;
+    minusTrigger = false;
+    plusTrigger = false;
 
-        if (QString::compare(butVal, "/", Qt::CaseInsensitive) == 0)
-        {
-           divTrigger = true;
-        }
-        else if (QString::compare(butVal, "*", Qt::CaseInsensitive) == 0)
-        {
-           multiTrigger = true;
-        }
-        else if (QString::compare(butVal, "-", Qt::CaseInsensitive) == 0)
-        {
-           minusTrigger = true;
-        }
-        else if (QString::compare(butVal, "+", Qt::CaseInsensitive) == 0)
-        {
-          plusTrigger = true;
-        }
+    if (QString::compare(butVal, "/", Qt::CaseInsensitive) == 0)
+    {
+       divTrigger = true;
+    }
+    else if (QString::compare(butVal, "*", Qt::CaseInsensitive) == 0)
+    {
+       multiTrigger = true;
+    }
+    else if (QString::compare(butVal, "-", Qt::CaseInsensitive) == 0)
+    {
+       minusTrigger = true;
+    }
+    else if (QString::compare(butVal, "+", Qt::CaseInsensitive) == 0)
+    {
+      plusTrigger = true;
+    }
 
 
 }
@@ -147,7 +153,7 @@ void Calculator::MathPressed()
 
 void Calculator::EqPressed()
 {
-    fNum = sol;
+    fNum = result;
     displayVal = ui -> Display -> text();
     if (an == false)
     {
@@ -158,40 +164,40 @@ void Calculator::EqPressed()
     {
         if(plusTrigger)
         {
-            sol = fNum + sNum;
+            result = fNum + sNum;
         }
 
         else if(minusTrigger)
         {
-            sol =  fNum - sNum;
+            result =  fNum - sNum;
         }
 
         else if(multiTrigger)
         {
-            sol =  fNum * sNum;
+            result =  fNum * sNum;
         }
 
         else if(divTrigger)
         {
-            sol =  fNum / sNum;
+            result =  fNum / sNum;
         }
     }
 
-    ui -> Display -> setText(QString::number(sol));
+    ui -> Display -> setText(QString::number(result));
     an = true;
     first = true;
     mbut = false;
 
-    qDebug () << sol;
+    qDebug () << result;
 
 }
 
 void Calculator::CleanPressed()
 {
-    if (sol == 0)
+    if (result == 0)
     {
         acCur ="";
-        cCur = "";
+        calCur = "";
         ui -> SDisplay -> setText("");
     }
     first = true;
@@ -200,7 +206,7 @@ void Calculator::CleanPressed()
     sNum = 0;
     calcVal = 0;
     anDisplayVal = 0;
-    sol = 0;
+    result= 0;
     ui -> Display -> setText("0");
 
 }
@@ -218,8 +224,8 @@ void Calculator::getRate()
     qDebug () << webAdr<< " " << htm;
 
     QStringRef subString(&htm, 18, 6);
-    QString curRates = subString.toString();
-    curRate = curRates.toDouble();
+    QString curRateStr = subString.toString();
+    curRate = curRateStr.toDouble();
     //...added
 
 }
@@ -245,25 +251,25 @@ void Calculator::AMPressed()
 
 void Calculator::PLNPressed()
 {
-    curBt = "PLN";
+    curName = "PLN";
     curr();
 }
 
 void Calculator::USDPressed()
 {
-    curBt = "USD";
+    curName = "USD";
     curr();
 }
 
 void Calculator::EURPressed()
 {
-    curBt = "EUR";
+    curName = "EUR";
     curr();
 }
 
 void Calculator::NOKPressed()
 {
-    curBt = "NOK";
+    curName = "NOK";
     curr();
 }
 
@@ -271,49 +277,51 @@ void Calculator::curr()
 {
     if ((acCur != "PLN") && (acCur != "USD") && (acCur != "EUR") && (acCur != "NOK"))
     {
-        acCur = curBt;
+        acCur = curName;
         ui -> SDisplay -> setText(acCur + QString(" -> "));
-        qDebug () << "if" << acCur << cCur ;
+        qDebug () << "if" << acCur << calCur ;
     }
     else
     {
-        cCur = curBt;
+        calCur = curName;
         webAdr = "http://free.currencyconverterapi.com/api/v5/convert?q=" + QString(acCur) + QString ("_")
-                                            + QString (cCur) + QString("&compact=y");
+                                            + QString (calCur) + QString("&compact=y");
         getRate();
-        if ((curRate == 0) && (mrate == false) && (cCur != acCur))         // nie da sie pobrac kursu z neta
+
+        if ((curRate == 0) && (mrate == false) && (calCur != acCur))         // cannot fetch rate from net
         {
             QMessageBox messagebox;
             messagebox.about(0,"Błąd", "Nie można pobrać aktulnych kursów walut ze strony www. "
                                         "Sprawdź połączenie z internetem, "
-                                        "lub wpisz kurs ręcznie i zatwierdź przyciskim " + (cCur));
+                                        "lub wpisz kurs ręcznie i zatwierdź przyciskim " + (calCur));
             curM = ui -> Display -> text().toDouble();
             mrate = true;
             ui -> Display -> setText("");
             ui -> SDisplay -> setText("Wpisz kurs");
         }
-        else if ((curRate == 0) && (mrate == true))     // po wpsianiu kursu ręcznie
+
+        else if ((curRate == 0) && (mrate == true))     // manual definition of currency rate
         {
             mrate = false;
             curRate = ui -> Display -> text().toDouble();
-            curSol = curM * curRate;
-            ui -> Display -> setText(QString::number(curSol));
-            qDebug () << "elseif" << acCur << cCur ;
-            ui -> SDisplay -> setText("Waluta: " + cCur + QString(" (kurs ") + acCur + cCur + QString(": ") +
+            curRes = curM * curRate;
+            ui -> Display -> setText(QString::number(curRes));
+            qDebug () << "elseif" << acCur << calCur ;
+            ui -> SDisplay -> setText("Waluta: " + calCur + QString(" (kurs ") + acCur + calCur + QString(": ") +
                                       QString::number(curRate) + QString (")"));
-            acCur = cCur;
-            sol = curSol;
+            acCur = calCur;
+            result= curRes;
         }
 
-        else
+        else                                    // if rate is fetched from net
         {
-            ui -> SDisplay -> setText("Waluta: " + cCur + QString(" (kurs ") + acCur + cCur + QString(": ") +
+            ui -> SDisplay -> setText("Waluta: " + calCur + QString(" (kurs ") + acCur + calCur + QString(": ") +
                                       QString::number(curRate) + QString (")"));
-            curSol = (ui -> Display -> text().toDouble()) * curRate;
-            ui -> Display -> setText(QString::number(curSol));
-            qDebug () << "else" << acCur << cCur ;
-            acCur = cCur;
-            sol = curSol;
+            curRes = (ui -> Display -> text().toDouble()) * curRate;
+            ui -> Display -> setText(QString::number(curRes));
+            qDebug () << "else" << acCur << calCur ;
+            acCur = calCur;
+            result= curRes;
         }
     }
 }

@@ -12,16 +12,16 @@ Calculator::Calculator(QWidget *parent) :
 
     //zerowanie zmiennych
     tempNum = 0;
-    result= 0;         // wynik
-    curRes = 0;      // wynik po przemnożeniu kurs * wynik
-    fNum = 0;       // pierwsza liczba ?
-    sNum = 0;       // druga liczba ?
+    result= 0;
+    curRes = 0;
+    fNum = 0;       // pierwsza liczba
+    sNum = 0;       // druga liczba
 
     curRate = 0;
     m = 0;
     curM = 0;
 
-    calcVal = 0;       //aktualna liczba z wyswietlacza
+    calcVal = 0;       //actual number on the display
     divTrigger = false;
     multiTrigger = false;
     plusTrigger = false;
@@ -104,8 +104,7 @@ void Calculator::DotPressed()
 
 void Calculator::MathPressed()
 {
- /*
- */
+
     if (dbMath == false)
     {
         if (first == false)
@@ -119,7 +118,7 @@ void Calculator::MathPressed()
         first = false;
         mbut = true;
         an = false;
-        if (first == false) dbMath = true;
+        dbMath = true;
 
     }
 
@@ -230,7 +229,6 @@ void Calculator::getRate()
 
 }
 
-
 void Calculator::ExitPressed()
 {
     this->close();
@@ -246,6 +244,7 @@ void Calculator::AMPressed()
 {
     m = ui -> Display -> text().toDouble();
 }
+
 
 // CURRENCY --------------------------------------------------------------------------------------
 

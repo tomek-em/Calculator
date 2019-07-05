@@ -197,6 +197,7 @@ void Calculator::CleanPressed()
     {
         acCur ="";
         calCur = "";
+        curRate = 0;
         ui -> SDisplay -> setText("");
     }
     first = true;
@@ -219,12 +220,13 @@ void Calculator::getRate()
     QObject::connect(response,SIGNAL(finished()),&event,SLOT(quit()));
     event.exec();
     QString htm = response->readAll();
-
-    qDebug () << webAdr<< " " << htm;
-
-    QStringRef subString(&htm, 18, 6);
+    QStringRef subString(&htm, 16, 5);
     QString curRateStr = subString.toString();
+
+    qDebug () << webAdr << "from getrate " << curRateStr;
+
     curRate = curRateStr.toDouble();
+    //curRate = curRateStr.toDouble();
     //...added
 
 }
@@ -283,9 +285,10 @@ void Calculator::curr()
     else
     {
         calCur = curName;
-        webAdr = "http://free.currencyconverterapi.com/api/v5/convert?q=" + QString(acCur) + QString ("_")
-                                            + QString (calCur) + QString("&compact=y");
+        webAdr = "https://api.exchangeratesapi.io/latest?base=" + QString(acCur) + QString ("&symbols=")
+                                            + QString(calCur);
         getRate();
+        qDebug() << curRate;
 
         if ((curRate == 0) && (mrate == false) && (calCur != acCur))         // cannot fetch rate from net
         {

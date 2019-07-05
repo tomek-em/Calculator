@@ -18,9 +18,8 @@ class Calculator : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Calculator(QWidget *parent = 0);       //explicit by uniknąć domyślnej konwersji typu QWidget na typ Calculator
-                                                //..gdyby nie było explicit, nawet gdybym utworzył Calculator calc(QString s)
-                                                // kompilator przekonwettował by (cast) QString s na typ QWidget. Tak myślę.
+    explicit Calculator(QWidget *parent = 0);
+
     ~Calculator();
 
 private:
@@ -29,7 +28,7 @@ private:
     double calcVal;
     double anDisplayVal;
     double tempNum;
-    double result;         // wynik
+    double result;
     double curRes;         // result of multipl. current result and currency rate
     double fNum;
     double sNum;
@@ -49,7 +48,7 @@ private:
     bool minusTrigger;
     bool an;
     bool mbut;        // true zeruje wyświetlacz gdy wpisujemy kolejna licz.
-    bool first;         // sprawdza czy to pierwsze działanie
+    bool first;        // sprawdza czy to pierwsze działanie
     bool dbMath;      // true - znak math dostal wcisniety 2 razy
     bool mrate;       // true - kurs wpisany ręcznie
 

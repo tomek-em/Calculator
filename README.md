@@ -12,5 +12,5 @@ Calculator and currency converter in one application. Built with Qt C++ framewor
 HOW TO USE:
 
 Put the amount and select first currency. Next select the currency you want to convert to.
-If you select currency button again the ammount will be calculated in new currency imediantly.
+If you select currency button again it will convert amount to new currence at once.
 After pushing "Clean" button the currency is cleaned.

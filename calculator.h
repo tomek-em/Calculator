@@ -6,6 +6,7 @@
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
 #include <QMessageBox>
+#include <QFontDatabase>
 
 #include <QDebug>
 

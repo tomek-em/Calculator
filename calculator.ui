@@ -6,15 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>353</height>
+    <width>420</width>
+    <height>360</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Calculator</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton
+   <string notr="true">centralWidget 
+{
+	background-color: #777788;
+}
+
+QPushButton
 {
 	background-color : #ccccff;
 	border : 1px solid grey;
@@ -29,6 +34,9 @@ QPushButton
 }</string>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="4" column="1">
      <widget class="QPushButton" name="Button5">
@@ -37,6 +45,18 @@ QPushButton
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>5</string>
@@ -51,6 +71,18 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>6</string>
       </property>
@@ -63,6 +95,18 @@ QPushButton
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>*</string>
@@ -77,6 +121,18 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>-</string>
       </property>
@@ -89,6 +145,18 @@ QPushButton
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>3</string>
@@ -103,6 +171,18 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>9</string>
       </property>
@@ -116,6 +196,18 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>8</string>
       </property>
@@ -128,6 +220,18 @@ QPushButton
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>4</string>
@@ -204,6 +308,18 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>7</string>
       </property>
@@ -216,6 +332,18 @@ QPushButton
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>/</string>
@@ -230,6 +358,18 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>2</string>
       </property>
@@ -242,6 +382,18 @@ QPushButton
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>1</string>
@@ -256,10 +408,17 @@ QPushButton
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-background-color:rgb(155, 243, 169);
+background-color: #2D2926;
 }</string>
       </property>
       <property name="text">
@@ -285,6 +444,18 @@ background-color:rgb(155, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>+</string>
       </property>
@@ -297,6 +468,18 @@ background-color:rgb(155, 243, 169);
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>0</string>
@@ -311,10 +494,17 @@ background-color:rgb(155, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-background-color:rgb(155, 243, 169);
+background-color: #2D2926;
 }</string>
       </property>
       <property name="text">
@@ -330,10 +520,17 @@ background-color:rgb(155, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-background-color:rgb(155, 243, 169);
+background-color: #2D2926;
 }</string>
       </property>
       <property name="text">
@@ -349,13 +546,20 @@ background-color:rgb(155, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-background-color:rgb(155, 243, 169);
+background-color: #2D2926;
 }</string>
       </property>
       <property name="text">
@@ -371,6 +575,18 @@ background-color:rgb(155, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>.</string>
       </property>
@@ -384,10 +600,17 @@ background-color:rgb(155, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
-background-color:rgb(255, 243, 169);
+background-color: #F2AA4C;
 }</string>
       </property>
       <property name="text">
@@ -403,6 +626,18 @@ background-color:rgb(255, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>M</string>
       </property>
@@ -415,6 +650,18 @@ background-color:rgb(255, 243, 169);
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
       </property>
       <property name="text">
        <string>=</string>
@@ -429,6 +676,18 @@ background-color:rgb(255, 243, 169);
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="font">
+       <font>
+        <family>Play</family>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background: #525261;
+}</string>
+      </property>
       <property name="text">
        <string>AM</string>
       </property>
@@ -441,7 +700,7 @@ background-color:rgb(255, 243, 169);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>420</width>
      <height>25</height>
     </rect>
    </property>

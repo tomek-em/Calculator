@@ -20,3 +20,8 @@ SOURCES += main.cpp\
 HEADERS  += calculator.h
 
 FORMS    += calculator.ui
+
+RESOURCES += \
+    res.qrc
+
+DISTFILES +=

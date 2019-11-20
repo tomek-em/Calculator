@@ -27,15 +27,24 @@ Calculator::Calculator(QWidget *parent) :
     plusTrigger = false;
     minusTrigger = false;
 
-    bool mbut = false;          // true zeruje wyświetlacz gdy wpisujemy kolejna licz.
-    bool first = true;          // sprawdza czy to pierwsze działanie
-    bool dbMath = false;        // true - znak math dostal wcisniety 2 razy
-    bool mrate = false;         // true - kurs wpisany ręcznie
+    mbut = false;          // true zeruje wyświetlacz gdy wpisujemy kolejna licz.
+    first = true;          // sprawdza czy to pierwsze działanie
+    dbMath = false;        // true - znak math dostal wcisniety 2 razy
+    mrate = false;         // true - kurs wpisany ręcznie
 
+    this -> setStyleSheet("background-color: #777788; color: #eeeeee;");
+
+    ui -> Display -> setMaximumHeight(120);
     ui -> SDisplay -> setMaximumHeight(30);
     ui -> Display -> setAlignment(Qt::AlignRight);
     ui -> Display -> setText(QString::number(calcVal));
     ui -> SDisplay -> setFontPointSize(10);
+
+    ui -> Display -> setStyleSheet("color: #eeeeee;");
+
+
+
+    //ui->ButtonEq->setStyleSheet("color: #eeeeee");
 
     QPushButton *numButtons[10];
     for (int i = 0; i < 10; i++)
@@ -193,13 +202,12 @@ void Calculator::EqPressed()
 
 void Calculator::CleanPressed()
 {
-    if (result == 0)
-    {
-        acCur ="";
-        calCur = "";
-        curRate = 0;
-        ui -> SDisplay -> setText("");
-    }
+    //if (result == 0)
+    acCur ="";
+    calCur = "";
+    curRate = 0;
+    ui -> SDisplay -> setText("");
+     //
     first = true;
     mbut = false;
     fNum = 0;
@@ -279,7 +287,7 @@ void Calculator::curr()
     if ((acCur != "PLN") && (acCur != "USD") && (acCur != "EUR") && (acCur != "NOK"))
     {
         acCur = curName;
-        ui -> SDisplay -> setText(acCur + QString(" -> "));
+        ui -> SDisplay -> setText(acCur + QString(" -> (choose second currency) "));
         qDebug () << "if" << acCur << calCur ;
     }
     else
@@ -293,13 +301,13 @@ void Calculator::curr()
         if ((curRate == 0) && (mrate == false) && (calCur != acCur))         // cannot fetch rate from net
         {
             QMessageBox messagebox;
-            messagebox.about(0,"Błąd", "Nie można pobrać aktulnych kursów walut ze strony www. "
-                                        "Sprawdź połączenie z internetem, "
-                                        "lub wpisz kurs ręcznie i zatwierdź przyciskim " + (calCur));
+            messagebox.about(0,"Error", "Can't get actual currency rates from internet right now' "
+                                        "Check your internet connection, "
+                                        "or write in rate manualy and confirm wtih " + (calCur) + "button");
             curM = ui -> Display -> text().toDouble();
             mrate = true;
             ui -> Display -> setText("");
-            ui -> SDisplay -> setText("Wpisz kurs");
+            ui -> SDisplay -> setText("Wrate in rate");
         }
 
         else if ((curRate == 0) && (mrate == true))     // manual definition of currency rate

@@ -307,7 +307,11 @@ void Calculator::curr()
             curM = ui -> Display -> text().toDouble();
             mrate = true;
             ui -> Display -> setText("");
+<<<<<<< 4d5b68c7d0f1a3a542a37ce92fa8b3983787170c
             ui -> SDisplay -> setText("Wrate in rate");
+=======
+            ui -> SDisplay -> setText("Write in rate");
+>>>>>>> pl ver
         }
 
         else if ((curRate == 0) && (mrate == true))     // manual definition of currency rate
@@ -317,7 +321,7 @@ void Calculator::curr()
             curRes = curM * curRate;
             ui -> Display -> setText(QString::number(curRes));
             qDebug () << "elseif" << acCur << calCur ;
-            ui -> SDisplay -> setText("Waluta: " + calCur + QString(" (kurs ") + acCur + calCur + QString(": ") +
+            ui -> SDisplay -> setText("Currency: " + calCur + QString(" (rate: ") + acCur + calCur + QString(": ") +
                                       QString::number(curRate) + QString (")"));
             acCur = calCur;
             result= curRes;
@@ -325,7 +329,7 @@ void Calculator::curr()
 
         else                                    // if rate is fetched from net
         {
-            ui -> SDisplay -> setText("Waluta: " + calCur + QString(" (kurs ") + acCur + calCur + QString(": ") +
+            ui -> SDisplay -> setText("Currency: " + calCur + QString(" (rate: ") + acCur + calCur + QString(": ") +
                                       QString::number(curRate) + QString (")"));
             curRes = (ui -> Display -> text().toDouble()) * curRate;
             ui -> Display -> setText(QString::number(curRes));

@@ -40,9 +40,12 @@ Calculator::Calculator(QWidget *parent) :
     ui -> Display -> setText(QString::number(calcVal));
     ui -> SDisplay -> setFontPointSize(10);
 
+<<<<<<< f3bda6d5d6b25090e0f8ed3138548e8c16c290e3
     ui -> Display -> setStyleSheet("color: #eeeeee;");
 
 
+=======
+>>>>>>> display issue fixed
 
     //ui->ButtonEq->setStyleSheet("color: #eeeeee");
 
@@ -307,11 +310,15 @@ void Calculator::curr()
             curM = ui -> Display -> text().toDouble();
             mrate = true;
             ui -> Display -> setText("");
+<<<<<<< f3bda6d5d6b25090e0f8ed3138548e8c16c290e3
 <<<<<<< 4d5b68c7d0f1a3a542a37ce92fa8b3983787170c
             ui -> SDisplay -> setText("Wrate in rate");
 =======
             ui -> SDisplay -> setText("Write in rate");
 >>>>>>> pl ver
+=======
+            ui -> SDisplay -> setText("Write in rate");
+>>>>>>> display issue fixed
         }
 
         else if ((curRate == 0) && (mrate == true))     // manual definition of currency rate

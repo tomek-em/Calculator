@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< f3bda6d5d6b25090e0f8ed3138548e8c16c290e3
 <<<<<<< 4d5b68c7d0f1a3a542a37ce92fa8b3983787170c
 <!-- Written by QtCreator 3.5.1, 2019-11-20T16:41:45. -->
 =======
 <!-- Written by QtCreator 3.5.1, 2019-11-21T06:53:00. -->
 >>>>>>> pl ver
+=======
+<!-- Written by QtCreator 3.5.1, 2019-11-21T06:53:00. -->
+>>>>>>> display issue fixed
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>

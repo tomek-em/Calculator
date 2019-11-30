@@ -278,10 +278,11 @@ QPushButton
       <property name="styleSheet">
        <string notr="true">QLineEdit
 {
-	background-color : #f2f2f2;
+	background-color : #676778;
 	border : 1px solid grey;
 	text-align : right;
 	padding : 4px;
+	color: #eee;
 }
 
 </string>
